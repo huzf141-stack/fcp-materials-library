@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>响亮有限公司 · 剪辑素材库</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='7' width='26' height='18' rx='3' fill='%23e8a33d'/%3E%3Crect x='7' y='11' width='18' height='10' fill='%230b0d12'/%3E%3Ccircle cx='10.5' cy='16' r='2.6' fill='%23f2f4f8'/%3E%3Ccircle cx='17.5' cy='16' r='2.6' fill='%23f2f4f8'/%3E%3Ccircle cx='24.5' cy='16' r='2.6' fill='%23f2f4f8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
+<style>
+:root{
+  --bg0:#0b0d12; --bg1:#12151d; --bg2:#1a1e29; --line:#252b38; --line2:#313a4d;
+  --t1:#f2f4f8; --t2:#9aa3b2; --t3:#626c7d;
+  --amber:#e8a33d; --amber-d:#c9892a; --blue:#38bdf8; --purple:#a78bfa;
+  --danger:#f87171;
+  --r:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px}
+body{background:var(--bg0);color:var(--t1);font-family:"Noto Sans SC",-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;cursor:pointer}
+input{font-family:inherit}
+img{display:block}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px;border-radius:4px}
+
+/* ===== 登录视图 ===== */
+.login-view{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;background:
+  radial-gradient(900px 520px at 18% -8%, rgba(232,163,61,.14), transparent 60%),
+  radial-gradient(760px 480px at 105% 112%, rgba(56,189,248,.10), transparent 60%),
+  var(--bg0);}
+.login-card{width:100%;max-width:400px;background:linear-gradient(180deg,var(--bg2),var(--bg1));border:1px solid var(--line);border-radius:20px;padding:44px 40px 36px;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.brand-mark{width:56px;height:56px;margin:0 auto 20px;border-radius:16px;background:linear-gradient(135deg,#e8a33d,#b57b24);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(232,163,61,.25)}
+.brand-mark svg{width:30px;height:30px}
+.login-card h1{font-size:24px;font-weight:900;text-align:center;letter-spacing:.02em}
+.login-sub{text-align:center;color:var(--t2);font-size:13px;margin-top:6px;margin-bottom:30px}
+.login-card label{display:block;font-size:13px;color:var(--t2);margin-bottom:6px}
+.login-card .field{margin-bottom:18px}
+.login-card input{width:100%;height:46px;padding:0 14px;border-radius:10px;border:1px solid var(--line2);background:var(--bg0);color:var(--t1);font-size:15px;transition:border-color .2s}
+.login-card input:focus{outline:none;border-color:var(--amber)}
+.login-card input::placeholder{color:var(--t3)}
+#loginBtn{width:100%;height:48px;border:none;border-radius:10px;background:var(--amber);color:#151008;font-size:16px;font-weight:700;margin-top:6px;transition:background .2s,transform .12s}
+#loginBtn:hover{background:#f0b054}
+#loginBtn:active{transform:scale(.985)}
+.login-error{min-height:20px;margin-top:12px;text-align:center;font-size:13px;color:var(--danger)}
+.login-hint{text-align:center;color:var(--t3);font-size:12px;margin-top:18px}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+
+/* ===== 素材库视图 ===== */
+.lib-view{min-height:100vh;display:flex;flex-direction:column;animation:fadeUp .35s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 6%;background:rgba(11,13,18,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+.brand svg{width:26px;height:26px;flex:none}
+.brand small{color:var(--t3);font-weight:400;font-size:12px}
+.topbar-right{display:flex;align-items:center;gap:14px}
+.who{font-size:13px;color:var(--t2);display:flex;align-items:center;gap:7px}
+.who::before{content:"";width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 0 3px rgba(52,211,153,.18)}
+#logoutBtn{height:34px;padding:0 16px;border-radius:8px;border:1px solid var(--line2);background:transparent;color:var(--t2);font-size:13px;transition:border-color .2s,color .2s}
+#logoutBtn:hover{border-color:var(--danger);color:var(--danger)}
+.get-all{display:flex;align-items:center;gap:7px;height:34px;padding:0 14px;border-radius:8px;background:var(--amber);color:#151008;font-size:13px;font-weight:700;text-decoration:none;transition:background .2s}
+.get-all:hover{background:#f0b054}
+.get-all svg{width:15px;height:15px}
+.main{flex:1;width:100%;max-width:1200px;margin:0 auto;padding:40px 24px 56px}
+.hero{display:flex;flex-direction:column;gap:8px;margin-bottom:34px}
+.hero .kicker{display:flex;align-items:center;gap:8px;color:var(--amber);font-size:13px;font-weight:700;letter-spacing:.06em}
+.hero .kicker::before{content:"";width:22px;height:2px;background:var(--amber)}
+.hero h2{font-size:34px;font-weight:900;letter-spacing:.01em}
+.hero p{color:var(--t2);font-size:14px}
+.stats{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.stat{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r);padding:14px 22px;display:flex;align-items:baseline;gap:8px}
+.stat b{font-size:24px;font-weight:900;font-variant-numeric:tabular-nums}
+.stat span{color:var(--t2);font-size:13px}
+
+/* 工具条 */
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+.search{position:relative;flex:1;min-width:240px;max-width:420px}
+.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:17px;height:17px;stroke:var(--t3)}
+.search input{width:100%;height:42px;padding:0 14px 0 42px;border-radius:10px;border:1px solid var(--line2);background:var(--bg1);color:var(--t1);font-size:14px;transition:border-color .2s}
+.search input:focus{outline:none;border-color:var(--amber)}
+.search input::placeholder{color:var(--t3)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{height:38px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--t2);font-size:13px;display:flex;align-items:center;gap:7px;transition:all .18s}
+.tabs button:hover{border-color:var(--t3);color:var(--t1)}
+.tabs button.active{background:var(--amber);border-color:var(--amber);color:#151008;font-weight:700}
+.tabs button em{font-style:normal;font-size:12px;opacity:.7;font-variant-numeric:tabular-nums}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block}
+.dot-trans{background:var(--amber)}
+.dot-title{background:var(--blue)}
+.dot-gen{background:var(--purple)}
+.tabs button.active .dot{background:rgba(21,16,8,.6)}
+
+/* 卡片网格 */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:20px}
+.card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);border-color:var(--line2);box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.card-cover{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--bg2)}
+.card-cover img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.card:hover .card-cover img{transform:scale(1.05)}
+.cover-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;position:relative;overflow:hidden}
+.cover-ph::before{content:"";position:absolute;inset:0;background:radial-gradient(240px 160px at 70% 22%,var(--glow),transparent 70%)}
+.cover-ph b{font-size:44px;font-weight:900;color:var(--t1);letter-spacing:.04em;font-variant-numeric:tabular-nums;position:relative;text-shadow:0 4px 18px rgba(0,0,0,.5)}
+.cover-ph span{font-size:11px;color:var(--t2);letter-spacing:.18em;position:relative}
+.card-tag{position:absolute;top:10px;left:10px;display:flex;align-items:center;gap:6px;background:rgba(11,13,18,.78);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.09);padding:4px 10px;border-radius:999px;font-size:11px;color:var(--t1);font-weight:500}
+.card-tag i{width:6px;height:6px;border-radius:50%;background:var(--cat)}
+.card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-body h3{font-size:15px;font-weight:700;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.8em}
+.card-meta{display:flex;align-items:center;justify-content:space-between;color:var(--t3);font-size:12px;font-variant-numeric:tabular-nums}
+.card-meta .num{font-weight:500}
+.dl-btn{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;height:38px;border-radius:9px;border:none;background:var(--bg2);border:1px solid var(--line2);color:var(--t1);font-size:13px;font-weight:600;text-decoration:none;transition:all .18s}
+.dl-btn:hover{background:var(--amber);border-color:var(--amber);color:#151008}
+.dl-btn svg{width:15px;height:15px}
+.empty{text-align:center;color:var(--t3);padding:70px 0;font-size:14px}
+
+/* 安装说明 */
+.install{margin-top:52px;background:var(--bg1);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.install-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:transparent;border:none;color:var(--t1);font-size:15px;font-weight:700;text-align:left}
+.install-toggle svg{width:18px;height:18px;stroke:var(--t2);transition:transform .25s}
+.install.open .install-toggle svg{transform:rotate(180deg)}
+.install-body{padding:0 20px 22px;color:var(--t2);font-size:14px;line-height:1.9}
+.install-body ol{padding-left:20px;display:flex;flex-direction:column;gap:8px}
+.install-body code{background:var(--bg0);border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-size:12.5px;color:#e8d5b0;font-family:"SF Mono",Menlo,Consolas,monospace}
+.install-map{margin:10px 0 2px;width:100%;border-collapse:collapse;font-size:13px}
+.install-map th,.install-map td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+.install-map th{background:var(--bg2);color:var(--t1);font-weight:600}
+.install-map td code{white-space:nowrap}
+
+footer{text-align:center;padding:22px 6% 30px;color:var(--t3);font-size:12px;border-top:1px solid var(--line)}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%);background:var(--bg2);border:1px solid var(--amber);color:var(--t1);font-size:13px;padding:12px 20px;border-radius:10px;box-shadow:0 12px 34px rgba(0,0,0,.5);z-index:99;max-width:90vw;text-align:center;animation:fadeUp .25s ease}
+
+@media (max-width:640px){
+  .topbar{padding:12px 14px;gap:10px}
+  .brand small{display:none}
+  .topbar-right{gap:8px}
+  .get-all{height:32px;padding:0 10px;font-size:12px}
+  .get-all svg{width:13px;height:13px}
+  #logoutBtn{height:32px;padding:0 10px;font-size:12px}
+  .who{display:none}
+  .main{padding:28px 16px 40px}
+  .hero h2{font-size:27px}
+  .stats .stat{padding:11px 16px}
+  .login-card{padding:36px 26px 30px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 视图：登录 ===== -->
+<div class="login-view" id="loginView">
+  <div class="login-card">
+    <div class="brand-mark">
+      <svg viewBox="0 0 32 32" fill="none"><rect x="3" y="7" width="26" height="18" rx="3" fill="#151008"/><rect x="7" y="11" width="18" height="10" fill="#151008" opacity=".25"/><circle cx="10.5" cy="16" r="2.6" fill="#e8a33d"/><circle cx="17.5" cy="16" r="2.6" fill="#e8a33d"/><circle cx="24.5" cy="16" r="2.6" fill="#e8a33d"/></svg>
+    </div>
+    <h1>响亮有限公司</h1>
+    <p class="login-sub">Final Cut Pro 剪辑素材库</p>
+    <form id="loginForm" autocomplete="off">
+      <div class="field">
+        <label for="username">账号</label>
+        <input type="text" id="username" placeholder="输入账号" autocomplete="username">
+      </div>
+      <div class="field">
+        <label for="password">密码</label>
+        <input type="password" id="password" placeholder="输入密码" autocomplete="current-password">
+      </div>
+      <button type="submit" id="loginBtn">进入素材库</button>
+    </form>
+    <p class="login-error" id="loginError"></p>
+    <p class="login-hint">授权访问 · 素材仅供内部项目使用</p>
+  </div>
+</div>
+
+<!-- ===== 视图：素材库 ===== -->
+<div class="lib-view" id="libView" hidden>
+  <header class="topbar">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" fill="none"><rect x="3" y="7" width="26" height="18" rx="3" fill="#e8a33d"/><rect x="7" y="11" width="18" height="10" fill="#0b0d12"/><circle cx="10.5" cy="16" r="2.6" fill="#f2f4f8"/><circle cx="17.5" cy="16" r="2.6" fill="#f2f4f8"/><circle cx="24.5" cy="16" r="2.6" fill="#f2f4f8"/></svg>
+      响亮有限公司 <small>剪辑素材库</small>
+    </div>
+    <div class="topbar-right">
+      <a class="get-all" href="https://pan.baidu.com/s/1fpcCewE-nW8kvpPKYIonZg" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        网盘获取全部素材
+      </a>
+      <span class="who" id="whoAmI">响亮有限公司</span>
+      <button id="logoutBtn">退出登录</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <div class="kicker">FINAL CUT PRO ASSETS</div>
+      <h2>剪辑素材库</h2>
+      <p>Final Cut Pro 转场、字幕标题、发生器模板安装包，登录后按需取用。</p>
+      <div class="stats">
+        <div class="stat"><b>44</b><span>模板</span></div>
+        <div class="stat"><b>3</b><span>分类</span></div>
+        <div class="stat"><b>829MB</b><span>资源总量</span></div>
+      </div>
+    </section>
+
+    <section class="toolbar">
+      <div class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="text" id="searchInput" placeholder="搜索素材名称或编号，如 Glitch、664">
+      </div>
+      <div class="tabs" id="tabs">
+        <button data-cat="全部" class="active">全部 <em>44</em></button>
+        <button data-cat="转场"><i class="dot dot-trans"></i>转场 <em>6</em></button>
+        <button data-cat="字幕标题"><i class="dot dot-title"></i>字幕标题 <em>32</em></button>
+        <button data-cat="发生器"><i class="dot dot-gen"></i>发生器 <em>6</em></button>
+      </div>
+    </section>
+
+    <section class="grid" id="grid"></section>
+    <div class="empty" id="empty" hidden>没有找到匹配的素材，换个关键词试试</div>
+
+    <section class="install" id="install">
+      <button class="install-toggle" id="installToggle">安装方法
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="install-body" id="installBody" hidden>
+        <ol>
+          <li>点击任意素材卡片上的「网盘下载」或顶部「网盘获取全部素材」按钮，跳转百度网盘（提取码 <code>fcp8</code>）。</li>
+          <li>在网盘中找到对应编号的 zip 文件，下载到本地。解压后，把里面的 <code>{编号}/{模板名}</code> 文件夹复制到 <code>~/Movies/Motion Templates.localized/</code> 下的对应子目录：</li>
+        </ol>
+        <table class="install-map">
+          <tr><th>素材分类</th><th>复制到子目录</th></tr>
+          <tr><td>转场</td><td><code>Transitions.localized</code></td></tr>
+          <tr><td>字幕标题</td><td><code>Titles.localized</code></td></tr>
+          <tr><td>发生器</td><td><code>Generators.localized</code></td></tr>
+        </table>
+        <ol start="3">
+          <li>重启 Final Cut Pro，即可在效果浏览器中看到新素材。</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer>响亮有限公司 · Final Cut Pro 素材库 · 共 44 个模板</footer>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/* 账号信息（可在此修改） */
+const USER = "响亮有限公司";
+const PWD  = "1314520";
+
+/* 素材数据：[编号, 名称, 分类, 大小, 封面扩展名(空=占位), 文件名] */
+const M = [
+["652","Logo Business","字幕标题","46KB","png","mixkit-652.zip"],
+["653","Logo Corporate","字幕标题","33KB","png","mixkit-653.zip"],
+["654","Logo Gaming","字幕标题","1.4MB","png","mixkit-654.zip"],
+["655","Logo GLitch","字幕标题","7.5MB","png","mixkit-655.zip"],
+["656","Logo Glow","字幕标题","31KB","png","mixkit-656.zip"],
+["657","Logo Minimal","字幕标题","25KB","png","mixkit-657.zip"],
+["658","Typography 01","字幕标题","21KB","","mixkit-658.zip"],
+["659","Typography 02","字幕标题","20KB","","mixkit-659.zip"],
+["660","Typography 03","字幕标题","19KB","","mixkit-660.zip"],
+["661","Typography 04","字幕标题","19KB","","mixkit-661.zip"],
+["662","Typography 05","字幕标题","20KB","","mixkit-662.zip"],
+["663","Glitch Title 08","字幕标题","7.4MB","png","mixkit-663.zip"],
+["664","Final Cut Transitions","转场","349KB","png","mixkit-664.zip"],
+["665","Final Cut Transitions","转场","468KB","png","mixkit-665.zip"],
+["666","Final Cut Transitions","转场","541KB","png","mixkit-666.zip"],
+["667","Final Cut Transitions","转场","166KB","png","mixkit-667.zip"],
+["668","Final Cut Transitions","转场","631KB","png","mixkit-668.zip"],
+["669","Final Cut Transitions","转场","24KB","png","mixkit-669.zip"],
+["670","Broadcast Lower Third","字幕标题","255KB","png","mixkit-670.zip"],
+["671","Brush Lower Third","字幕标题","1.0MB","png","mixkit-671.zip"],
+["672","Corporate Lower Third","字幕标题","124KB","png","mixkit-672.zip"],
+["673","Graffiti Lower Third","字幕标题","1.0MB","png","mixkit-673.zip"],
+["674","Minimal Lower Third","字幕标题","194KB","png","mixkit-674.zip"],
+["675","Modern Lower Third","字幕标题","159KB","png","mixkit-675.zip"],
+["706","Bold Typography","发生器","44.1MB","png","mixkit-706.zip"],
+["708","Minimal Story","发生器","43.7MB","png","mixkit-708.zip"],
+["709","Modern Story","发生器","43.8MB","png","mixkit-709.zip"],
+["717","Subscribe Reminder 1","字幕标题","126KB","png","mixkit-717.zip"],
+["718","Subscribe Reminder 2","字幕标题","229KB","png","mixkit-718.zip"],
+["719","Your Channel Lower Third","字幕标题","94KB","png","mixkit-719.zip"],
+["720","Your Channel Lower Third 2","字幕标题","98KB","png","mixkit-720.zip"],
+["721","End Screen 1","字幕标题","1.5MB","png","mixkit-721.zip"],
+["726","Glitch Opener","字幕标题","8.3MB","","mixkit-726.zip"],
+["727","Ink Opener","字幕标题","129.9MB","jpg","mixkit-727.zip"],
+["728","Light Leaks Intro","字幕标题","2.9MB","","mixkit-728.zip"],
+["729","Event Promo","字幕标题","36KB","","mixkit-729.zip"],
+["730","Glitch Promo","字幕标题","68.3MB","png","mixkit-730.zip"],
+["731","Promo App","字幕标题","684KB","png","mixkit-731.zip"],
+["732","Slideshows","发生器","382KB","png","mixkit-732.zip"],
+["733","Slideshows","发生器","536KB","png","mixkit-733.zip"],
+["734","Slideshows","发生器","2.1MB","png","mixkit-734.zip"],
+["753","Cinematic Opener","字幕标题","335.7MB","png","mixkit-753.zip"],
+["754","Corporate Opener","字幕标题","125.2MB","png","mixkit-754.zip"],
+["755","Simple Slides v1.2","字幕标题","38KB","","mixkit-755.zip"]
+];
+
+const CAT_COLOR = {"转场":"var(--amber)","字幕标题":"var(--blue)","发生器":"var(--purple)"};
+const isLocal = location.protocol === "file:";
+
+const $ = id => document.getElementById(id);
+const grid = $("grid"), emptyEl = $("empty");
+let curCat = "全部", curQuery = "";
+
+function esc(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+function render(){
+  const q = curQuery.trim().toLowerCase();
+  const list = M.filter(m => {
+    if(curCat !== "全部" && m[2] !== curCat) return false;
+    if(!q) return true;
+    return m[0].toLowerCase().includes(q) || m[1].toLowerCase().includes(q) || m[5].toLowerCase().includes(q);
+  });
+  emptyEl.hidden = list.length > 0;
+  grid.innerHTML = list.map(m => {
+    const [id,name,cat,size,ext,file] = m;
+    const color = CAT_COLOR[cat] || "var(--amber)";
+    const cover = ext ? `<img src="assets/covers/cover-${id}.${ext}" alt="${esc(name)}" loading="lazy">`
+                      : `<div class="cover-ph" style="--glow:${color}"><b>${id}</b><span>${cat}</span></div>`;
+    return `<div class="card">
+      <div class="card-cover">
+        ${cover}
+        <span class="card-tag"><i style="background:${color}"></i>${cat}</span>
+      </div>
+      <div class="card-body">
+        <h3>${esc(name)}</h3>
+        <div class="card-meta"><span class="num">mixkit-${id}</span><span>${size}</span></div>
+        <a class="dl-btn" href="https://pan.baidu.com/s/1fpcCewE-nW8kvpPKYIonZg" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          网盘下载（提取码 fcp8）
+        </a>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+/* 点击下载：跳转百度网盘 */
+grid.addEventListener("click", e => {
+  const a = e.target.closest("a.dl-btn");
+  if(!a) return;
+  /* 新窗口打开网盘链接，无需拦截 */
+});
+
+/* 登录 */
+$("loginForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const u = $("username").value.trim();
+  const p = $("password").value;
+  if(u === USER && p === PWD){
+    $("loginError").textContent = "";
+    $("loginView").hidden = true;
+    $("libView").hidden = false;
+    $("whoAmI").textContent = USER;
+    render();
+  }else{
+    const err = $("loginError");
+    err.textContent = "账号或密码错误，请重新输入";
+    const card = $("loginView").querySelector(".login-card");
+    card.classList.remove("shake");
+    void card.offsetWidth;
+    card.classList.add("shake");
+    $("password").value = "";
+  }
+});
+$("logoutBtn").addEventListener("click", () => {
+  $("libView").hidden = true;
+  $("loginView").hidden = false;
+  $("password").value = ""; $("username").value = "";
+});
+
+/* 搜索 + 分类筛选 */
+$("searchInput").addEventListener("input", e => { curQuery = e.target.value; render(); });
+$("tabs").addEventListener("click", e => {
+  const btn = e.target.closest("button");
+  if(!btn) return;
+  [...$("tabs").children].forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  curCat = btn.dataset.cat;
+  render();
+});
+
+/* 安装说明折叠 */
+$("installToggle").addEventListener("click", () => {
+  const open = $("install").classList.toggle("open");
+  $("installBody").hidden = !open;
+});
+
+/* toast */
+let toastTimer;
+function toast(msg){
+  const t = $("toast");
+  t.textContent = msg;
+  t.hidden = false;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { t.hidden = true; }, 2600);
+}
+</script>
+</body>
+</html>
